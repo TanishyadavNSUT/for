@@ -1,0 +1,891 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aisle Be Yours Forever 🛒❤️</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --primary: #ff4d6d;
+        --primary-light: #ff758f;
+        --bg-top: #fff0f3;
+        --bg-bottom: #ffe5ec;
+        --text-dark: #590d22;
+        --text-muted: #a4133c;
+        --glass-bg: rgba(255, 255, 255, 0.45);
+        --glass-border: rgba(255, 255, 255, 0.6);
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(
+          135deg,
+          var(--bg-top),
+          var(--bg-bottom),
+          #ffc2d1
+        );
+        background-attachment: fixed;
+        color: var(--text-dark);
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+      }
+
+      /* Ambient glowing orbs */
+      .ambient-orb {
+        position: fixed;
+        border-radius: 50%;
+        filter: blur(90px);
+        z-index: -2;
+        opacity: 0.6;
+        animation: floatOrb 20s infinite ease-in-out alternate;
+      }
+      .orb-1 {
+        top: 10%;
+        left: -10%;
+        width: 400px;
+        height: 400px;
+        background: #ffb3c1;
+      }
+      .orb-2 {
+        bottom: 10%;
+        right: -10%;
+        width: 500px;
+        height: 500px;
+        background: #ffccd5;
+        animation-delay: -5s;
+      }
+
+      @keyframes floatOrb {
+        0% {
+          transform: translate(0, 0) scale(1);
+        }
+        100% {
+          transform: translate(50px, 50px) scale(1.1);
+        }
+      }
+
+      .heart-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        pointer-events: none;
+        z-index: -1;
+        overflow: hidden;
+      }
+      .heart {
+        position: absolute;
+        bottom: -5vh;
+        color: var(--primary-light);
+        opacity: 0.7;
+        animation: floatUp linear infinite;
+      }
+      @keyframes floatUp {
+        0% {
+          transform: translateY(0) scale(0.8) rotate(0deg);
+          opacity: 0;
+        }
+        10% {
+          opacity: 0.8;
+        }
+        90% {
+          opacity: 0.8;
+        }
+        100% {
+          transform: translateY(-110vh) scale(1.5) rotate(360deg);
+          opacity: 0;
+        }
+      }
+
+      @keyframes heroGlow {
+        0% {
+          transform: translateY(0) scale(1);
+          opacity: 0.55;
+        }
+        50% {
+          transform: translateY(10px) scale(1.05);
+          opacity: 0.85;
+        }
+        100% {
+          transform: translateY(0) scale(1);
+          opacity: 0.55;
+        }
+      }
+
+      @keyframes glassShimmer {
+        0% {
+          transform: translateX(-12%);
+          opacity: 0.35;
+        }
+        50% {
+          transform: translateX(10%);
+          opacity: 0.7;
+        }
+        100% {
+          transform: translateX(-12%);
+          opacity: 0.35;
+        }
+      }
+
+      ::-webkit-scrollbar {
+        width: 12px;
+      }
+      ::-webkit-scrollbar-track {
+        background: var(--bg-top);
+      }
+      ::-webkit-scrollbar-thumb {
+        background: var(--primary-light);
+        border-radius: 10px;
+      }
+
+      .title-font {
+        font-family: "Great Vibes", cursive;
+        line-height: 1.1;
+      }
+      .handwriting {
+        font-family: "Caveat", cursive;
+      }
+
+      /* Hero Section - Takes 65vh to show following content */
+      .hero {
+        width: 100%;
+        height: 65vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 2rem;
+        position: relative;
+        margin-top: 5vh;
+        isolation: isolate;
+        background: radial-gradient(
+          900px 320px at 50% 0%,
+          rgba(255, 255, 255, 0.65),
+          rgba(255, 255, 255, 0) 70%
+        );
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: -15% -10% auto -10%;
+        height: 75%;
+        background:
+          radial-gradient(
+            420px 220px at 15% 20%,
+            rgba(255, 117, 143, 0.25),
+            rgba(255, 117, 143, 0) 70%
+          ),
+          radial-gradient(
+            520px 260px at 85% 10%,
+            rgba(255, 179, 193, 0.35),
+            rgba(255, 179, 193, 0) 70%
+          );
+        z-index: 0;
+        pointer-events: none;
+        filter: blur(2px);
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          120deg,
+          rgba(255, 255, 255, 0.18),
+          rgba(255, 255, 255, 0)
+        );
+        z-index: 0;
+        pointer-events: none;
+      }
+
+      .hero-content {
+        background: linear-gradient(
+          155deg,
+          rgba(255, 255, 255, 0.75),
+          rgba(255, 255, 255, 0.35)
+        );
+        backdrop-filter: blur(28px);
+        -webkit-backdrop-filter: blur(28px);
+        padding: 4.2rem 4.2rem;
+        border-radius: 44px;
+        border: 1px solid rgba(255, 255, 255, 0.75);
+        box-shadow:
+          0 20px 60px rgba(255, 77, 109, 0.2),
+          inset 0 0 20px rgba(255, 255, 255, 0.25);
+        z-index: 2;
+        position: relative;
+        overflow: hidden;
+        transform: perspective(1000px) translateZ(0);
+        transition:
+          transform 0.5s ease,
+          box-shadow 0.5s ease;
+      }
+
+      .hero-content::before {
+        content: "";
+        position: absolute;
+        inset: -60% -20% auto -20%;
+        height: 80%;
+        background: radial-gradient(
+          70% 80% at 50% 0%,
+          rgba(255, 255, 255, 0.8),
+          rgba(255, 255, 255, 0) 70%
+        );
+        opacity: 0.7;
+        pointer-events: none;
+        animation: heroGlow 8s ease-in-out infinite;
+      }
+
+      .hero-content::after {
+        content: "";
+        position: absolute;
+        inset: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.55);
+        border-radius: 34px;
+        pointer-events: none;
+      }
+      .hero-content:hover {
+        transform: perspective(1000px) translateZ(20px) scale(1.01);
+        box-shadow:
+          0 30px 80px rgba(255, 77, 109, 0.28),
+          inset 0 0 25px rgba(255, 255, 255, 0.3);
+      }
+
+      .hero h1 {
+        font-size: 7vw;
+        margin-bottom: 1.5rem;
+        color: var(--primary);
+        text-shadow: 2px 4px 15px rgba(255, 77, 109, 0.2);
+        letter-spacing: 0.02em;
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeUpReveal 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+      }
+
+      .hero p {
+        font-size: 1.6rem;
+        font-weight: 500;
+        color: var(--text-dark);
+        max-width: 800px;
+        margin: 0 auto;
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeUpReveal 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) 0.4s
+          forwards;
+        line-height: 1.6;
+        text-shadow: 0 2px 6px rgba(255, 255, 255, 0.6);
+      }
+
+      .scroll-down {
+        position: absolute;
+        bottom: -40px; /* Position beneath the 65vh hero so it points to content */
+        font-size: 2rem;
+        color: var(--primary);
+        opacity: 0;
+        animation:
+          fadeUpReveal 1s ease 1s forwards,
+          bounce 2s infinite 2s;
+        cursor: pointer;
+        text-decoration: none;
+        background: rgba(255, 255, 255, 0.6);
+        backdrop-filter: blur(10px);
+        width: 60px;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        border: 1px solid var(--glass-border);
+        box-shadow: 0 10px 30px rgba(255, 77, 109, 0.2);
+        z-index: 20;
+      }
+
+      @keyframes fadeUpReveal {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes bounce {
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+          transform: translateY(0);
+        }
+        40% {
+          transform: translateY(-15px);
+        }
+        60% {
+          transform: translateY(-7px);
+        }
+      }
+
+      /* Gallery Layout */
+      .gallery {
+        width: 92vw;
+        max-width: 1800px;
+        margin: 0 auto;
+        padding: 5rem 0 10rem;
+        display: flex;
+        flex-direction: column;
+        gap: 15vh;
+        position: relative;
+        z-index: 5;
+      }
+
+      .item {
+        --from-x: -40px;
+        --from-y: 70px;
+        --from-rot: -2deg;
+        --from-scale: 0.96;
+        display: flex;
+        align-items: center;
+        gap: 6vw;
+        opacity: 0;
+        filter: blur(10px);
+        transform: translate(var(--from-x), var(--from-y))
+          rotate(var(--from-rot)) scale(var(--from-scale));
+        transition:
+          transform 1.1s cubic-bezier(0.2, 0.8, 0.2, 1),
+          opacity 0.9s ease,
+          filter 1.1s ease;
+      }
+
+      .item.show {
+        opacity: 1;
+        filter: blur(0);
+        transform: translate(0, 0) rotate(0) scale(1);
+      }
+
+      .item:nth-child(1) {
+        --from-x: -70px;
+        --from-y: 90px;
+        --from-rot: -3deg;
+        --from-scale: 0.95;
+      }
+      .item:nth-child(2) {
+        --from-x: 70px;
+        --from-y: 60px;
+        --from-rot: 3deg;
+        --from-scale: 0.96;
+      }
+      .item:nth-child(3) {
+        --from-x: -60px;
+        --from-y: 40px;
+        --from-rot: -1.5deg;
+        --from-scale: 0.97;
+      }
+      .item:nth-child(4) {
+        --from-x: 60px;
+        --from-y: 80px;
+        --from-rot: 2.5deg;
+        --from-scale: 0.95;
+      }
+      .item:nth-child(5) {
+        --from-x: -40px;
+        --from-y: 90px;
+        --from-rot: -2deg;
+        --from-scale: 0.94;
+      }
+      .item:nth-child(6) {
+        --from-x: 80px;
+        --from-y: 50px;
+        --from-rot: 3deg;
+        --from-scale: 0.96;
+      }
+      .item:nth-child(7) {
+        --from-x: -80px;
+        --from-y: 70px;
+        --from-rot: -2.5deg;
+        --from-scale: 0.95;
+      }
+      .item:nth-child(8) {
+        --from-x: 70px;
+        --from-y: 90px;
+        --from-rot: 2deg;
+        --from-scale: 0.95;
+      }
+
+      .item:nth-child(even) {
+        flex-direction: row-reverse;
+      }
+
+      /* Base Cards Enhancements */
+      .item-image {
+        flex: 1.2;
+        position: relative;
+        transform-origin: center;
+        transition:
+          transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1),
+          box-shadow 0.6s ease;
+        box-shadow: 0 25px 60px rgba(164, 19, 60, 0.15);
+        border-radius: 32px;
+        background: linear-gradient(
+          165deg,
+          rgba(255, 255, 255, 0.95),
+          rgba(255, 255, 255, 0.6)
+        );
+        padding: 22px;
+        border: 1px solid rgba(255, 255, 255, 0.8);
+        overflow: hidden;
+      }
+
+      .item-image::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: 32px;
+        background: linear-gradient(
+          120deg,
+          rgba(255, 255, 255, 0.65),
+          rgba(255, 255, 255, 0)
+        );
+        opacity: 0.6;
+        pointer-events: none;
+        animation: glassShimmer 7s ease-in-out infinite;
+      }
+
+      .item-image::after {
+        content: "";
+        position: absolute;
+        inset: 10px;
+        border-radius: 24px;
+        border: 1px solid rgba(255, 255, 255, 0.7);
+        pointer-events: none;
+      }
+
+      .item:hover .item-image {
+        transform: perspective(1000px) rotateY(4deg) rotateX(2deg) scale(1.03)
+          translateY(-10px);
+        box-shadow: 0 35px 70px rgba(164, 19, 60, 0.3);
+      }
+
+      .item:nth-child(even):hover .item-image {
+        transform: perspective(1000px) rotateY(-4deg) rotateX(2deg) scale(1.03)
+          translateY(-10px);
+      }
+
+      .item-image img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 18px;
+        object-fit: contain;
+        max-height: 75vh;
+        position: relative;
+        z-index: 1;
+      }
+
+      .item-text {
+        flex: 1;
+        background: linear-gradient(
+          160deg,
+          rgba(255, 255, 255, 0.65),
+          rgba(255, 255, 255, 0.35)
+        );
+        backdrop-filter: blur(28px);
+        -webkit-backdrop-filter: blur(28px);
+        border: 1px solid rgba(255, 255, 255, 0.75);
+        padding: 4.5rem 3.5rem;
+        border-radius: 42px;
+        box-shadow: 0 15px 40px rgba(255, 77, 109, 0.18);
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        transition:
+          transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1),
+          box-shadow 0.5s ease;
+      }
+
+      .item-text::before {
+        content: "";
+        position: absolute;
+        top: -40%;
+        left: -20%;
+        width: 140%;
+        height: 200%;
+        background: radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0.5) 0%,
+          rgba(255, 255, 255, 0) 60%
+        );
+        opacity: 0.6;
+        pointer-events: none;
+        animation: glassShimmer 9s ease-in-out infinite reverse;
+      }
+
+      .item-text::after {
+        content: "";
+        position: absolute;
+        inset: 18px;
+        border-radius: 30px;
+        border: 1px solid rgba(255, 255, 255, 0.55);
+        pointer-events: none;
+      }
+
+      .item:hover .item-text {
+        transform: translateY(-8px) scale(1.02);
+        box-shadow: 0 25px 50px rgba(255, 77, 109, 0.25);
+      }
+
+      .item-text h3 {
+        font-size: 4rem;
+        color: var(--primary);
+        margin-bottom: 1.5rem;
+        line-height: 1.3;
+        text-shadow: 2px 2px 6px rgba(255, 255, 255, 0.95);
+        position: relative;
+        display: inline-block;
+        padding-bottom: 0.6rem;
+      }
+
+      .item-text h3::after {
+        content: "";
+        position: absolute;
+        left: 10%;
+        bottom: 0;
+        width: 80%;
+        height: 3px;
+        background: linear-gradient(
+          90deg,
+          rgba(255, 117, 143, 0),
+          rgba(255, 117, 143, 0.7),
+          rgba(255, 117, 143, 0)
+        );
+        border-radius: 999px;
+      }
+
+      .item-text p {
+        font-size: 1.4rem;
+        color: var(--text-dark);
+        font-weight: 500;
+        opacity: 0.9;
+      }
+
+      /* ------------------------------------------------ */
+      /* WIDE ITEM LAYOUT AND DESIGN ONLY FOR CHOSEN CARDS */
+      /* ------------------------------------------------ */
+      .item.item-wide,
+      .item.item-wide:nth-child(even) {
+        flex-direction: column;
+        align-items: center;
+        gap: 0; /* Elements overlap nicely */
+        background: transparent;
+      }
+
+      .item.item-wide .item-image {
+        flex: none;
+        width: 100%;
+        max-width: 1500px;
+        margin: 0 auto;
+        padding: 28px;
+        background: linear-gradient(
+          160deg,
+          rgba(255, 255, 255, 0.8),
+          rgba(255, 255, 255, 0.45)
+        );
+        backdrop-filter: blur(18px);
+        box-shadow: 0 30px 90px rgba(164, 19, 60, 0.28);
+        border-radius: 46px;
+        z-index: 1;
+      }
+
+      .item.item-wide .item-image img {
+        max-height: none; /* Allows true wide landscape */
+        border-radius: 24px;
+        box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.05); /* inner shadow */
+      }
+
+      .item:hover.item-wide .item-image {
+        /* Beautiful floating cinematic scale */
+        transform: scale(1.02) translateY(-10px);
+      }
+
+      .item.item-wide .item-text {
+        flex: none;
+        width: 90%;
+        max-width: 1100px;
+        margin: 0 auto;
+        transform: translateY(-55px);
+        z-index: 2;
+        background: linear-gradient(
+          160deg,
+          rgba(255, 255, 255, 0.75),
+          rgba(255, 255, 255, 0.4)
+        );
+        padding: 3.2rem 2.5rem;
+        border-radius: 34px;
+        box-shadow: 0 15px 55px rgba(255, 77, 109, 0.32);
+      }
+
+      .item.item-wide:hover .item-text {
+        transform: translateY(-60px) scale(1.01);
+      }
+
+      .item.item-wide .item-text h3 {
+        font-size: 4.5rem;
+        margin-bottom: 0.7rem;
+      }
+      /* ------------------------------------------------ */
+
+      /* Footer */
+      footer {
+        width: 100%;
+        text-align: center;
+        padding: 10rem 2rem;
+        background: linear-gradient(
+          to top,
+          rgba(255, 179, 193, 0.5) 0%,
+          transparent 100%
+        );
+      }
+
+      footer h2 {
+        font-size: 5rem;
+        color: var(--primary);
+        margin-bottom: 1rem;
+        text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
+      }
+
+      /* Responsive Design */
+      @media (max-width: 1024px) {
+        .hero {
+          height: auto;
+          padding: 10vh 2rem 20vh;
+          margin-top: 0;
+        }
+        .hero h1 {
+          font-size: 4.5rem;
+        }
+        .item,
+        .item:nth-child(even) {
+          flex-direction: column;
+          gap: 3rem;
+        }
+        .item-image,
+        .item-text {
+          width: 100%;
+          flex: none;
+        }
+        .item.item-wide .item-text {
+          transform: translateY(-30px);
+          width: 95%;
+          padding: 2rem;
+        }
+        .item.item-wide:hover .item-text {
+          transform: translateY(-40px);
+        }
+        .item-text h3 {
+          font-size: 3rem;
+        }
+        .gallery {
+          width: 90vw;
+          gap: 10vh;
+          padding-top: 2rem;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .hero-content {
+          padding: 3rem 1.5rem;
+        }
+        .hero h1 {
+          font-size: 3.8rem;
+        }
+        .hero p {
+          font-size: 1.2rem;
+        }
+        .item-text h3 {
+          font-size: 2.5rem;
+        }
+        .item-image {
+          padding: 12px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Ambient Background Elements -->
+    <div class="ambient-orb orb-1"></div>
+    <div class="ambient-orb orb-2"></div>
+    <div class="heart-container" id="hearts"></div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+      <div class="hero-content">
+        <h1 class="title-font">Hello cutie 😘</h1>
+        <p>
+          Let me take you on a trip of my feelings, how i see you in everything
+          in a supermarket 😋
+        </p>
+      </div>
+      <a href="#story" class="scroll-down">↓</a>
+    </section>
+
+    <!-- Story Gallery -->
+    <section class="gallery" id="story">
+      <div class="item">
+        <div class="item-image">
+          <img src="1.jpeg" alt="Catch my little hearts" />
+        </div>
+        <div class="item-text">
+          <h3 class="handwriting">"Catch my little hearts 💕"</h3>
+          <p></p>
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-image">
+          <img src="2.jpeg" alt="U my kohinoor" />
+        </div>
+        <div class="item-text">
+          <h3 class="handwriting">"U my kohinoor 💎"</h3>
+          <p></p>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="item-image">
+          <img src="4.jpeg" alt="U surf excel" />
+        </div>
+        <div class="item-text">
+          <h3 class="handwriting">"U surf excel 🤩"</h3>
+          <p>( because you are the absolute best at everything 😌! )</p>
+        </div>
+      </div>
+
+      <!-- 7.jpeg WIDE LAYOUT -->
+      <div class="item item-wide">
+        <div class="item-image">
+          <img src="7.jpeg" alt="My everest" />
+        </div>
+        <div class="item-text">
+          <h3 class="handwriting">"U my life, my love, my everest 🏔️❤️"</h3>
+          <p></p>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="item-image">
+          <img src="3.jpeg" alt="Closeup kisses" />
+        </div>
+        <div class="item-text">
+          <h3 class="handwriting">"Closeup kisses 😘"</h3>
+          <p></p>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="item-image">
+          <img src="mainkhiladi.jpeg" alt="Main Khiladi" />
+        </div>
+        <div class="item-text">
+          <h3 class="handwriting">"main khiladi 😎"</h3>
+          <p></p>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="item-image">
+          <img src="5.jpeg" alt="U set wet me" />
+        </div>
+        <div class="item-text">
+          <h3 class="handwriting">"U set wet me 💦"</h3>
+          <p>....sorry 🙈 (I couldn't resist!)</p>
+        </div>
+      </div>
+
+      <!-- 6.jpeg WIDE LAYOUT -->
+      <div class="item item-wide">
+        <div class="item-image">
+          <img src="6.jpeg" alt="Real comfort home" />
+        </div>
+        <div class="item-text">
+          <h3 class="handwriting">"U my happy happy real comfort home 🩷🩷"</h3>
+          <p></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <h2 class="title-font">I love you bubu 🤗</h2>
+      <p></p>
+    </footer>
+
+    <script>
+      // Floating Hearts Logic generator
+      const heartContainer = document.getElementById("hearts");
+      const emojis = ["🤍", "🩷", "✨", "💕", "💘"];
+
+      function createHeart() {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+
+        // Random styling
+        heart.style.left = Math.random() * 100 + "vw";
+        const duration = Math.random() * 10 + 12; // 12-22s
+        heart.style.animationDuration = duration + "s";
+        heart.style.fontSize = Math.random() * 20 + 15 + "px"; // 15-35px
+
+        heartContainer.appendChild(heart);
+
+        // Clean up old hearts
+        setTimeout(() => {
+          heart.remove();
+        }, duration * 1000);
+      }
+
+      // Initially create batch of hearts
+      for (let i = 0; i < 30; i++) {
+        setTimeout(createHeart, Math.random() * 5000);
+      }
+
+      // Continuously create hearts
+      setInterval(createHeart, 800);
+
+      // Scroll Reveal Logic with IntersectionObserver
+      const items = document.querySelectorAll(".item");
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("show");
+            }
+          });
+        },
+        {
+          threshold: 0.15,
+          rootMargin: "0px 0px -50px 0px",
+        },
+      );
+
+      items.forEach((item) => {
+        observer.observe(item);
+      });
+    </script>
+  </body>
+</html>
